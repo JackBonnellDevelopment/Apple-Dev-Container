@@ -1,0 +1,14 @@
+.vscode/**
+.github/**
+src/**
+test/**
+examples/**
+**/*.ts
+**/*.tsbuildinfo
+.gitignore
+tsconfig.json
+*.vsix
+node_modules/**
+!node_modules/@devcontainers/cli/**
+dist/test/**
+**/*.map

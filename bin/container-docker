@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+'use strict';
+
+require('../dist/shim/cli.js').main().then((code) => {
+  process.exitCode = code;
+}).catch((err) => {
+  process.stderr.write(`${err && err.stack ? err.stack : err}\n`);
+  process.exitCode = 1;
+});

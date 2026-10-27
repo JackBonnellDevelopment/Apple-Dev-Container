@@ -1,0 +1,105 @@
+{
+  "name": "container-devcontainers",
+  "displayName": "Apple Dev Containers (Unofficial)",
+  "description": "Unofficial beta extension that runs Dev Containers with Apple's container CLI. Not affiliated with Apple or Microsoft.",
+  "version": "0.1.2",
+  "preview": true,
+  "icon": "images/icon.png",
+  "license": "MIT",
+  "publisher": "JackBonnell",
+  "keywords": [
+    "devcontainer",
+    "apple-container",
+    "container",
+    "docker"
+  ],
+  "galleryBanner": {
+    "color": "#111111",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=22"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "bin": {
+    "container-docker": "./bin/container-docker"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "container-devcontainers.showActions",
+        "title": "Apple Container: Show Actions"
+      },
+      {
+        "command": "container-devcontainers.reopenInContainer",
+        "title": "Apple Container: Reopen in Container"
+      },
+      {
+        "command": "container-devcontainers.rebuildAndReopen",
+        "title": "Apple Container: Rebuild and Reopen"
+      },
+      {
+        "command": "container-devcontainers.rebuildNoCacheAndReopen",
+        "title": "Apple Container: Rebuild Without Cache and Reopen"
+      },
+      {
+        "command": "container-devcontainers.rebuild",
+        "title": "Apple Container: Rebuild Container"
+      },
+      {
+        "command": "container-devcontainers.rebuildNoCache",
+        "title": "Apple Container: Rebuild Container Without Cache"
+      },
+      {
+        "command": "container-devcontainers.reopenLocally",
+        "title": "Apple Container: Reopen Folder Locally"
+      },
+      {
+        "command": "container-devcontainers.reinstallServer",
+        "title": "Apple Container: Reinstall Server and Reload Window"
+      },
+      {
+        "command": "container-devcontainers.showLog",
+        "title": "Apple Container: Show Log"
+      },
+      {
+        "command": "container-devcontainers.useAppleContainer",
+        "title": "Apple Container: Use for Dev Containers"
+      },
+      {
+        "command": "container-devcontainers.useDocker",
+        "title": "Apple Container: Use Docker Again"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package --dependencies --allow-missing-repository",
+    "publish": "vsce publish --dependencies --allow-missing-repository",
+    "publish:openvsx": "ovsx publish --allow-missing-repository",
+    "test": "npm run compile && node --test --test-force-exit dist/test/unit/*.test.js",
+    "test:smoke": "npm run compile && node --test --test-concurrency=1 --test-force-exit --test-timeout 300000 dist/test/smoke/up.test.js"
+  },
+  "dependencies": {
+    "@devcontainers/cli": "^0.72.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^4.0.0",
+    "ovsx": "^1.3.0",
+    "typescript": "^5.8.0"
+  }
+}

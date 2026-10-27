@@ -1,0 +1,7 @@
+{
+  "name": "Apple shim image",
+  "image": "alpine:latest",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "postCreateCommand": "echo image-ok > /tmp/apple-dev-marker"
+}
